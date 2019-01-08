@@ -1,0 +1,56 @@
+{% extends 'global/header.html' %}
+{% block title %} Authentification {% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    { redirect("malchance:index") }   
+
+{% else %}
+    {% if form.errors %}
+        <p>There's something wrong with what you entered in the form!</p>
+    {% endif %}
+
+    {% if next %}
+        <p>Error to access</p>
+    {% endif %}    
+    <section id="wrapper" class="front-login-register">
+    <div class="container">
+    <div class="login-box">
+        <div class="white-box">
+            <form class="form-horizontal form-material" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <h1 class="box-title m-b-10" style="color: #00e1c6">Bienvenue sur la plateforme de connexion</h1>
+                
+                <div class="form-group ">
+                    <div class="col-xs-12">
+                        {{ form.username }}
+                        <!--<input class="form-control" type="text" required="" placeholder="Nom d'utilisateur" name="username">-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        {{ form.password }}
+                        <!--<input class="form-control" type="password" required="" placeholder="Mot de passe" name="password">-->
+                    </div>
+                </div>
+                <div class="form-group text-center m-t-20">
+                    <div class="col-xs-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" name="login" type="submit">Log In</button>
+                    </div>
+                </div>
+               
+            </form>
+            
+        </div>
+    </div>
+    </div>
+</section>
+    <!--<form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <p>username: {{ form.username }}</p>
+        <p>password: {{ form.password }}</p>
+        <p><input type="submit" name="auth"></p>
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>-->
+{% endif %}
+{% endblock %}

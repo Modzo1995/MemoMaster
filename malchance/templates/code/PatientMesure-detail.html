@@ -1,0 +1,22 @@
+{% extends "global/header.html"%}
+{% block title %}La page de detail {% endblock %}
+	{% block content %}
+<div class="row">
+	<div class="col-sm-6">
+		<p>{{ patientmesure.IdPatient }}</p>
+		<p>{{ patientmesure.IdMaterielMesure }}</p>
+		<p>{{ patientmesure.IdChannel }}</p>
+		<p>{{ patientmesure.PublicKey }}</p>
+		<p>{{ patientmesure.DateBegin }}</p>
+		<p>{{ patientmesure.DateEnd }}</p>
+	</div>
+	{% if patientmesure.IdChannel != "null" or patientmesure.PublicKey != "null" %}
+		<div class="col-sm-6">
+			<div class="container">
+	     		<iframe width="465" height="280" style="border: 1px solid #cccccc;" src="{% url 'malchance:thing-view' patientmesure.IdChannel patientmesure.PublicKey %}"></iframe>
+			</div>
+		</div>	
+	{% endif %}	
+</div>		
+	{% endblock %}	
+	

@@ -1,0 +1,23 @@
+{% extends "global/header.html"%}
+{% block title %} ajout {% endblock %}
+{% block content %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12 col-md-7">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							{% include 'global/form-template.html' %}
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-success">valider</button>
+								</div>
+							</div>
+						</form>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

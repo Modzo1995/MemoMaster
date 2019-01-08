@@ -1,0 +1,12 @@
+{% extends "global/header.html"%}
+{% block title %}La page de detail {% endblock %}
+	{% block content %}
+		<p>{{ materielmesure.IdMaterielMesure }}</p>
+		
+		{% if materielmesure.etat == 'D' %}
+			<p>Desactivate</p>
+		{% else %}
+			<p>Activate</p>		
+		{% endif %}
+		
+	{% endblock %}

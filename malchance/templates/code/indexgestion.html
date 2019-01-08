@@ -1,0 +1,30 @@
+{% extends "global/header.html"%}
+{% block title %}La page d'index{% endblock %}
+
+{% block content %}  
+<div class="Jumbotron">
+	<h1>This is the index page</h1>
+	{% if user.is_authenticated %}
+
+    {% if user.is_superuser%}
+
+    	<h2>your name is: {{ user.username }}</h2>
+      <h2>you are the master here</h2>
+    {% else %}
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>your name is: {{ user.username }}</h2>
+        <h2>you are the remaining here</h2>
+      </div>
+      <div class="col-sm-6">
+        <a href=""><button type="button" class="btn btn-block btn-primary">Gestion patient</button></a>
+        <a href=""><button type="button" class="btn btn-block btn-primary">Gestion Dossier</button></a>
+      </div>      
+    </div>
+  {% endif %}
+  {% else %}
+    <h2>you are not logged in</h2>
+  {% endif %} 
+   
+</div>
+{% endblock %}

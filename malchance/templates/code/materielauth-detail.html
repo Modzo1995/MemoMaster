@@ -1,0 +1,13 @@
+{% extends "global/header.html"%}
+{% block title %}La page de detail {% endblock %}
+	{% block content %}
+		<p>{{ materielauth.CodeIdentification }}</p>
+		
+		{% if materielauth.etat == 'D' %}
+			<p>Desactivate</p>
+		{% else %}
+			<p>Activate</p>		
+		{% endif %}
+		
+	{% endblock %}	
+	

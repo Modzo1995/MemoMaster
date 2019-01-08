@@ -1,0 +1,11 @@
+{% extends "global/header.html"%}
+{% block title %}La page de detail {% endblock %}
+	{% block content %}
+
+		<p>{{ diagnostic.IdDossier }}</p>
+		<p>{{ diagnostic.Titre }}</p>
+		<p>{{ diagnostic.contenu }}</p>
+		<p>{{ diagnostic.recommendation }}</p>
+		
+	{% endblock %}	
+	

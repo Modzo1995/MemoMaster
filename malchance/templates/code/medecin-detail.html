@@ -1,0 +1,12 @@
+{% extends "global/header.html"%}
+{% block title %}La page de detail {% endblock %}
+	{% block content %}
+
+	<p>{{ medecin.username }}</p>
+	<p>{{ medecin.first_name }}</p>
+	<p>{{ medecin.last_name }}</p>
+	<p>{{ medecin.email }}</p>
+	<p>{{ medecin.Specialization }}</p>
+	<p>{{ medecin.date_joined }}</p>
+		
+	{% endblock %}

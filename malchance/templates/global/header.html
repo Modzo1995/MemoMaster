@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			 <!--<link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}">-->
+			<title>{% block title %}Malchance{% endblock %}</title>
+			 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">  
+		    <!--Bootstrap Core CSS -->
+		     <!--<link href="{% static 'assets/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">-->
+
+		    <!-- Custom CSS -->
+		    <!-- <link href="{% static 'assets/css/style-light.css' %}" rel="stylesheet">-->
+		</head>
+		<body >
+			{% if user.is_authenticated %}
+    			{% if user.is_superuser%}
+    				<nav class="navbar navbar-dark bg-dark">
+					<a class="navbar-brand" href="{% url 'malchance:index' %}" >Home</a>
+
+				  	<a class="navbar-brand" href="{% url 'malchance:medecin-view' %}">medecin</a>
+
+				    <a class="navbar-brand" href="{% url 'malchance:materielauth-view' %}">matérial auth</a>
+
+					<a class="navbar-brand" href="{% url 'malchance:materielmesure-view' %}">matérial mesure</a>
+
+			      	<a class="navbar-brand" href="{% url 'logout' %}">
+			      		<button class="btn btn-outline-danger my-2 my-sm-0" >Logout</button>
+			      	</a>
+					</nav>
+    			{% else %}
+    				<nav class="navbar navbar-dark bg-primary">
+    					<a class="navbar-brand" href="{% url 'malchance:index' %}">Home</a>
+
+    					<a class="navbar-brand" href="{% url 'malchance:Patient-view' %}">patient</a>
+
+				     	<a class="navbar-brand" href="{% url 'malchance:Dossier-view' %}">Dossier</a>
+
+						<a class="navbar-brand" href="{% url 'malchance:Enregistrement-view' %}">Enregistrement</a>
+				      		
+				      	<a class="navbar-brand" href="{% url 'malchance:Diagnostic-view' %}">Diagnostic</a> 
+
+      					<a class="navbar-brand" href="{% url 'malchance:PatientMesure-view' %}">Appareil-Mesure</a>
+
+					  	<a class="navbar-brand" class="navbar-brand" href="{% url 'logout' %}">
+			      			<button class="btn btn-outline-danger my-2 my-sm-0" >Logout</button>
+			      		</a>	
+					</nav>
+    			{% endif %}
+			{% endif %} 
+
+
+			{% block content %}{% endblock %}
+		</body>
+	</html>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>

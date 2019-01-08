@@ -1,0 +1,17 @@
+{% extends "global/header.html"%}
+{% block title %}La page de detail {% endblock %}
+	{% block content %}
+
+		<p>{{ patient.id }}</p>
+		<p>{{ patient.NomPatient }}</p>
+		<p>{{ patient.PrenomPatient }}</p>
+		<p>{{ patient.DateNaissPatient }}</p>
+		<p>{{ patient.Address }}</p>
+		{% if patient.Sexe == 'F' %}
+			<p>Femme</p>
+		{% else %}
+			<p>Homme</p>		
+		{% endif %}
+		
+	{% endblock %}	
+	
